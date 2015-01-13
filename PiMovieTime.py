@@ -90,6 +90,17 @@ def getColor(maxBrightness):
 		green = (maxBrightness - brightness) * 2
 		red = maxBrightness
 	
+	#normalize the colors. there is a bug but the day & time it happens is unclear at the moment
+	if green > maxBrightness:
+		green = maxBrightness
+	elif green < 0:
+		green = 0
+	
+	if red > maxBrightness:
+		red = maxBrightness
+	elif red < 0:
+		red = 0
+	
 	#print 'now: '+str(now)+' endGreen: '+str(endGreen)+' startRed: '+str(startRed);
 	#print 'stepIncrement: '+str(stepIncrement)+' brightness: '+str(brightness)+' timeDiff: '+str(timeDiff);
 	#print 'hour: '+str(hour)+' minute: '+str(minute)+' red: '+str(red)+' green: '+str(green)
